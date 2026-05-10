@@ -12,6 +12,8 @@ const socials = [
   { icon: FiInstagram, href: "https://instagram.com", label: "Instagram" },
 ];
 
+const FORMSPREE_URL = "https://formspree.io/f/xovalbwa";
+
 const ContactSection = () => {
   const sectionRef = useRef(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -26,10 +28,26 @@ const ContactSection = () => {
   const opacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
   const scale = useTransform(smoothProgress, [0, 0.2], [0.95, 1]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 4000);
+    const form = e.target;
+    const formData = new FormData(form);
+
+    const response = await fetch(FORMSPREE_URL, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (response.ok) {
+      setIsSubmitted(true);
+      form.reset();
+      setTimeout(() => setIsSubmitted(false), 4000);
+    } else {
+      alert("Message failed to send. Please check your Formspree ID.");
+    }
   };
 
   return (
@@ -78,12 +96,15 @@ const ContactSection = () => {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-24">
 
+              <input type="hidden" name="_subject" value="New message from portfolio contact form" />
+
               <div className="space-y-20">
                 {/* NAME INPUT */}
                 <div className="group relative">
                   <span className="block text-[10px] font-black uppercase tracking-[0.4em] text-white/20 group-focus-within:text-orange-500 transition-all duration-500 mb-6">01. Identity</span>
                   <input
                     required
+                    name="name"
                     type="text"
                     placeholder="Full Name"
                     className="w-full bg-transparent border-b border-white/10 py-4 text-white text-xl sm:text-2xl font-medium focus:outline-none focus:border-orange-500 transition-all duration-700 placeholder:text-white/[0.02]"
@@ -95,6 +116,7 @@ const ContactSection = () => {
                   <span className="block text-[10px] font-black uppercase tracking-[0.4em] text-white/20 group-focus-within:text-purple-500 transition-all duration-500 mb-6">02. Gateway</span>
                   <input
                     required
+                    name="email"
                     type="email"
                     placeholder="Email Address"
                     className="w-full bg-transparent border-b border-white/10 py-4 text-white text-xl sm:text-2xl font-medium focus:outline-none focus:border-purple-500 transition-all duration-700 placeholder:text-white/[0.02]"
@@ -106,6 +128,7 @@ const ContactSection = () => {
                   <span className="block text-[10px] font-black uppercase tracking-[0.4em] text-white/20 group-focus-within:text-pink-500 transition-all duration-500 mb-6">03. Mission</span>
                   <textarea
                     required
+                    name="message"
                     rows="2"
                     placeholder="Your vision..."
                     className="w-full bg-transparent border-b border-white/10 py-4 text-white text-xl sm:text-2xl font-medium focus:outline-none focus:border-pink-500 transition-all duration-700 resize-none placeholder:text-white/[0.02]"

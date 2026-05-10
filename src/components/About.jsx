@@ -23,26 +23,31 @@ const About = () => {
   const t1Y = useTransform(smoothProgress, [0, 0.2], [300, -300])
   const t1Scale = useTransform(smoothProgress, [0, 0.2], [0.9, 1.1])
 
-  // Phase 2: 0.25 to 0.45
-  const t2Opacity = useTransform(smoothProgress, [0.25, 0.3, 0.4, 0.45], [0, 1, 1, 0])
-  const t2Y = useTransform(smoothProgress, [0.25, 0.45], [300, -300])
-  const t2Scale = useTransform(smoothProgress, [0.25, 0.45], [0.9, 1.1])
+  // Phase 2: 0.2 to 0.4
+  const t2Opacity = useTransform(smoothProgress, [0.2, 0.25, 0.35, 0.4], [0, 1, 1, 0])
+  const t2Y = useTransform(smoothProgress, [0.2, 0.4], [300, -300])
+  const t2Scale = useTransform(smoothProgress, [0.2, 0.4], [0.9, 1.1])
 
-  // Phase 3: 0.5 to 0.7
-  const t3Opacity = useTransform(smoothProgress, [0.5, 0.55, 0.65, 0.7], [0, 1, 1, 0])
-  const t3Y = useTransform(smoothProgress, [0.5, 0.7], [300, -300])
-  const t3Scale = useTransform(smoothProgress, [0.5, 0.7], [0.9, 1.1])
+  // Phase 3: 0.4 to 0.6
+  const t3Opacity = useTransform(smoothProgress, [0.4, 0.45, 0.55, 0.6], [0, 1, 1, 0])
+  const t3Y = useTransform(smoothProgress, [0.4, 0.6], [300, -300])
+  const t3Scale = useTransform(smoothProgress, [0.4, 0.6], [0.9, 1.1])
 
-  // Phase 4: 0.75 to 1.0
-  const t4Opacity = useTransform(smoothProgress, [0.75, 0.8, 0.95, 1], [0, 1, 1, 0])
-  const t4Y = useTransform(smoothProgress, [0.75, 1], [300, -300])
-  const t4Scale = useTransform(smoothProgress, [0.75, 1], [0.9, 1.1])
+  // Phase 4: 0.6 to 0.8
+  const t4Opacity = useTransform(smoothProgress, [0.6, 0.65, 0.75, 0.8], [0, 1, 1, 0])
+  const t4Y = useTransform(smoothProgress, [0.6, 0.8], [300, -300])
+  const t4Scale = useTransform(smoothProgress, [0.6, 0.8], [0.9, 1.1])
+
+  // Phase 5: 0.8 to 1.0 (Experience)
+  const t5Opacity = useTransform(smoothProgress, [0.8, 0.85, 0.95, 1], [0, 1, 1, 0])
+  const t5Y = useTransform(smoothProgress, [0.8, 1], [300, -300])
+  const t5Scale = useTransform(smoothProgress, [0.8, 1], [0.9, 1.1])
 
   // Dynamic background vignette that darkens the scene slightly so text pops
-  const vignetteOpacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1], [0, 0.5, 0.5, 0])
+  const vignetteOpacity = useTransform(smoothProgress, [0, 0.1, 0.9, 1], [0, 0.5, 0.5, 0])
 
   return (
-    <section ref={containerRef} className="relative h-[500vh] w-full z-20">
+    <section ref={containerRef} className="relative h-[600vh] w-full z-20">
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden pointer-events-none px-4">
         
         {/* Subtle darkening overlay for text readability */}
@@ -101,6 +106,20 @@ const About = () => {
           <h2 className="text-3xl md:text-6xl font-black text-white text-center leading-snug tracking-tight drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] max-w-5xl">
             Bridging the gap between <br className="hidden md:block" /> 
             heavy engineering &amp; pure art.
+          </h2>
+        </motion.div>
+
+        {/* --- TEXT 5 (Experience) --- */}
+        <motion.div 
+          className="absolute top-[30%] w-full flex flex-col items-center px-6"
+          style={{ opacity: t5Opacity, y: t5Y, scale: t5Scale }}
+        >
+          <span className="text-white font-bold tracking-[0.4em] uppercase text-sm mb-4 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
+            Experience
+          </span>
+          <h2 className="text-5xl md:text-8xl font-black text-white text-center leading-tight tracking-tighter drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] max-w-5xl">
+            Full Stack <br className="hidden md:block" />
+            <span className="text-orange-400">Freelancing Project.</span>
           </h2>
         </motion.div>
 

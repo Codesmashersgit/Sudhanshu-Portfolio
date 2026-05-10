@@ -4,60 +4,60 @@ import { FiGithub, FiExternalLink } from 'react-icons/fi'
 
 const projects = [
   {
-    title: "Cinematic Portfolio",
-    description: "A highly immersive, 3D web experience built with React, Framer Motion, and Tailwind CSS. Features parallax depth.",
-    tags: ["React", "Framer", "Tailwind"],
-    github: "#",
-    live: "#",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+    title: "Collaborative Task Management",
+    description: "MERN task manager with JWT auth, role access and Socket.IO collaboration.",
+    tags: ["MERN", "Socket.IO", "JWT", "React"],
+    github: "https://github.com/Codesmashersgit/Collaborative-Task-Management",
+    live: "https://github.com/Codesmashersgit/Collaborative-Task-Management",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
   },
   {
-    title: "E-Commerce",
-    description: "A full-stack application featuring secure JWT authentication, Stripe payment, and a custom admin dashboard.",
-    tags: ["MERN", "Stripe", "Redux"],
-    github: "#",
-    live: "#",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+    title: "CodeSphere – Multi-language IDE",
+    description: "Online IDE with Node/Express APIs and 2s code execution for hundreds of users.",
+    tags: ["Node.js", "Express", "React", "Vercel"],
+    github: "https://github.com/Codesmashersgit/Editor",
+    live: "https://editor-two-omega.vercel.app/",
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80"
   },
   {
-    title: "AI Chat UI",
-    description: "A glassmorphic UI for an AI assistant, featuring real-time streaming responses and responsive design.",
-    tags: ["Next.js", "OpenAI"],
-    github: "#",
-    live: "#",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=80"
+    title: "Movie Street",
+    description: "React movie discovery app with search, listings, and API-powered details.",
+    tags: ["React", "API", "Netlify"],
+    github: "https://github.com/Codesmashersgit/Movie-app",
+    live: "https://movieappwe.netlify.app/",
+    image: "https://images.unsplash.com/photo-1516738901601-6818ecbad793?auto=format&fit=crop&w=800&q=80"
   },
   {
-    title: "Fintech App",
-    description: "A secure financial dashboard providing real-time analytics, user roles, and interactive charts.",
-    tags: ["React", "Node.js"],
-    github: "#",
+    title: "Nexus - Peer to Peer Communication Platform",
+    description: "Peer-to-peer chat and call app with WebRTC, secure messaging, and smooth UI.",
+    tags: ["React", "WebRTC", "Socket.IO", "Netlify"],
+    github: "https://github.com/Codesmashersgit/Nexus",
+    live: "https://nexus1802.netlify.app/",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Melodify - Music Streaming App",
+    description: "Music streaming UI with playlists, search, and responsive audio browsing.",
+    tags: ["React", "Music API", "Netlify"],
+    github: "https://github.com/Codesmashersgit/Melodify-app",
+    live: "https://melodifynew.netlify.app/",
+    image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Finance Project",
+    description: "Finance dashboard with analytics, portfolio tracking, and insights.",
+    tags: ["React", "Node.js", "Finance API"],
+    github: "https://github.com/Codesmashersgit/Finance-Project",
     live: "#",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
   },
   {
-    title: "Social Network",
-    description: "A highly scalable social network with real-time web socket messaging, post liking, and personalized feeds.",
-    tags: ["Socket.io", "Redis"],
-    github: "#",
+    title: "BugBhai – Smart Error Helper for JS/TS",
+    description: "VS Code extension that shows friendly JS/TS error messages in English and Hindi.",
+    tags: ["VSCode Extension", "JavaScript", "TypeScript"],
+    github: "https://github.com/Codesmashersgit/VsCode-Extension",
     live: "#",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    title: "SaaS Booking",
-    description: "An automated scheduling platform for service businesses, including calendar synchronization.",
-    tags: ["Next.js", "Prisma"],
-    github: "#",
-    live: "#",
-    image: "https://images.unsplash.com/photo-1434626881859-194d67b2b86f?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    title: "NFT Market",
-    description: "A decentralized application allowing users to mint, buy, and sell NFTs directly on Ethereum.",
-    tags: ["Solidity", "Web3.js"],
-    github: "#",
-    live: "#",
-    image: "https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1633356122544-f134324ef6db?auto=format&fit=crop&w=800&q=80"
   }
 ]
 
@@ -85,7 +85,7 @@ const Projects = () => {
   const smoothFly = useSpring(scrollYProgress, { stiffness: 60, damping: 20 });
 
   return (
-    <section id="projects" ref={containerRef} className="relative h-[400vh] z-20">
+    <section id="projects" ref={containerRef} className="relative h-[400vh] z-5">
       
       {/* Sticky container so the fan stays in place while scattering over 400vh */}
       <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden">
@@ -113,8 +113,8 @@ const Projects = () => {
             const yOffset = Math.abs(offset) * 25; // 25px drop per step away from center
             const rot = offset * 5; // 5 degrees rotation per step
             
-            const baseZIndex = 20 - Math.abs(offset);
-            const zIndex = isHovered ? 50 : baseZIndex;
+            const baseZIndex = 8 - Math.abs(offset);
+            const zIndex = isHovered ? 10 : baseZIndex;
 
             // Define the sequence in which cards fly out. 
             // The highest z-index card (center, index 3) MUST go first, 
@@ -164,7 +164,7 @@ const Projects = () => {
                     filter: isDimmed ? "grayscale(100%) blur(2px)" : "grayscale(0%) blur(0px)"
                   }}
                   transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                  className="w-[300px] sm:w-[360px] h-[420px] sm:h-[460px] origin-bottom cursor-grab active:cursor-grabbing flex-shrink-0 bg-[#0a0510]/80 backdrop-blur-3xl border border-white/10 border-t-white/20 border-l-white/20 rounded-[2.5rem] overflow-hidden group shadow-[0_20px_50px_-15px_rgba(0,0,0,0.9)] flex flex-col"
+                  className="w-[300px] sm:w-[360px] h-[420px] sm:h-[460px] origin-bottom cursor-grab active:cursor-grabbing flex-shrink-0 rounded-[2.5rem] overflow-hidden group shadow-[0_30px_90px_-30px_rgba(139,92,246,0.55)] flex flex-col border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(139,92,246,0.18),transparent_35%),linear-gradient(180deg,rgba(15,23,42,0.95),rgba(7,10,17,0.98))]"
                 >
                   {/* Full Height Background Image */}
                   <div className="absolute inset-0 w-full h-full pointer-events-none">
@@ -193,10 +193,12 @@ const Projects = () => {
                         <FiGithub size={24} />
                         <span>CODE</span>
                       </a>
-                      <a href={project.live} className="flex items-center justify-center gap-3 text-base sm:text-lg text-white/90 hover:text-white transition-colors font-black drop-shadow-md tracking-wider">
-                        <span>LIVE</span>
-                        <FiExternalLink size={24} />
-                      </a>
+                      {project.live !== "#" && (
+                        <a href={project.live} className="flex items-center justify-center gap-3 text-base sm:text-lg text-white/90 hover:text-white transition-colors font-black drop-shadow-md tracking-wider">
+                          <span>LIVE</span>
+                          <FiExternalLink size={24} />
+                        </a>
+                      )}
                     </div>
 
                   </div>

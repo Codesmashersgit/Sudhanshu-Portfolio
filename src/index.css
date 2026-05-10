@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Syne:wght@400;500;600;700;800&display=swap');
 
-@theme {
+:root {
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f9fafb;
   --color-bg-card: #ffffff;
@@ -21,11 +21,11 @@
   --font-outfit: 'Outfit', sans-serif;
 }
 
-@utility font-syne {
+.font-syne {
   font-family: 'Syne', sans-serif;
 }
 
-@utility font-outfit {
+.font-outfit {
   font-family: 'Outfit', sans-serif;
 }
 
