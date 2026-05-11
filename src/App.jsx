@@ -7,6 +7,7 @@ import Marquee from './components/Marquee'
 import ContactSection from './components/ContactSection'
 import SunsetBackground from './components/SunsetBackground'
 import ForegroundMountains from './components/ForegroundMountains'
+import ArcheryGame from './components/ArcheryGame'
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         <About />
         <Projects />
         <TechStack />
+        <section id="archery-game" className="relative h-screen w-full z-50 bg-[#0a0a1a] overflow-hidden">
+          <ArcheryGame />
+        </section>
         <Marquee />
         <ContactSection />
       </main>

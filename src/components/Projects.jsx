@@ -58,6 +58,14 @@ const projects = [
     github: "https://github.com/Codesmashersgit/VsCode-Extension",
     live: "#",
     image: "https://images.unsplash.com/photo-1633356122544-f134324ef6db?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Celestial Archery",
+    description: "Interactive canvas-based archery game with physics, power meter, and space theme.",
+    tags: ["Canvas", "JavaScript", "Game Dev"],
+    github: "#",
+    live: "#archery-game",
+    image: "https://images.unsplash.com/photo-1511078573293-423810aeaf01?auto=format&fit=crop&w=800&q=80"
   }
 ]
 
@@ -70,6 +78,7 @@ const flyOutTargets = [
   { x: -400,  y: -1200, rot: -30 },// 4: Straight up left
   { x: 1500,  y: 100,  rot: 120 }, // 5: Straight right
   { x: 0,     y: -1500, rot: 180 },// 6: Straight up spinning
+  { x: -1500, y: 500,  rot: -120 },// 7: Far bottom left out
 ]
 
 const Projects = () => {
@@ -116,14 +125,13 @@ const Projects = () => {
             const baseZIndex = 8 - Math.abs(offset);
             const zIndex = isHovered ? 10 : baseZIndex;
 
-            // Define the sequence in which cards fly out. 
-            // The highest z-index card (center, index 3) MUST go first, 
-            // then alternating the next highest cards (4, 2), then (5, 1), then (6, 0).
-            const orderMap = { 3:0, 4:1, 2:2, 5:3, 1:4, 6:5, 0:6 };
+            // The highest z-index card (center, index 3 & 4) MUST go first, 
+            // then alternating the next highest cards (2, 5), (1, 6), then (0, 7).
+            const orderMap = { 3:0, 4:1, 2:2, 5:3, 1:4, 6:5, 0:6, 7:7 };
             const order = orderMap[i];
             
-            // Divide the scroll space from 0.15 to 0.95 into 7 sequential steps
-            const step = 0.8 / 7; 
+            // Divide the scroll space from 0.15 to 0.95 into 8 sequential steps
+            const step = 0.8 / 8; 
             const startScroll = 0.15 + (order * step);
             const endScroll = startScroll + step;
 
@@ -144,7 +152,7 @@ const Projects = () => {
                   rotate: flyRot, 
                   scale: flyScale, 
                   opacity: flyOpacity,
-                  zIndex: zIndex
+                  zIndex: isHovered ? 100 : (10 - Math.abs(offset))
                 }}
                 className="absolute"
               >
