@@ -28,17 +28,57 @@ export const HeroSection: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Smooth autoplay interval for continuous movement without start-stop scroll lag
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % 4);
-    }, 3000); // changes every 3 seconds
-    
-    return () => clearInterval(interval);
-  }, []);
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const offsetTop = rect.top; 
+      const totalScrollable = rect.height - window.innerHeight;
+      
+      if (offsetTop > 0) {
+        if (activeIndex !== 0) setActiveIndex(0);
+        return;
+      }
+      
+      if (offsetTop < -totalScrollable) {
+        if (activeIndex !== 3) setActiveIndex(3);
+        return;
+      }
+      
+      const scrolled = -offsetTop;
+      const progress = scrolled / totalScrollable;
+      // Using Math.round(progress * 3) evenly distributes the 4 states (0,1,2,3) across the scroll space
+      const newIndex = Math.min(3, Math.max(0, Math.round(progress * 3)));
+      
+      if (newIndex !== activeIndex) {
+        setActiveIndex(newIndex);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [activeIndex]);
 
   const navigate = useCallback((direction: 'next' | 'prev') => {
-    setActiveIndex(prev => direction === 'next' ? (prev + 1) % 4 : (prev + 3) % 4);
-  }, []);
+    if (!containerRef.current) return;
+    const nextIndex = direction === 'next' 
+      ? (activeIndex + 1) % 4 
+      : (activeIndex + 3) % 4;
+      
+    const rect = containerRef.current.getBoundingClientRect();
+    const currentScrollY = window.scrollY;
+    const offsetTop = rect.top + currentScrollY; 
+    const totalScrollable = rect.height - window.innerHeight;
+    const segmentHeight = totalScrollable / 3; // divided by 3 gaps
+    
+    // Smooth scroll to the target segment
+    const targetY = offsetTop + (nextIndex * segmentHeight);
+    
+    window.scrollTo({
+      top: targetY,
+      behavior: 'smooth'
+    });
+  }, [activeIndex]);
 
   const getRole = (idx: number) => {
     if (idx === activeIndex) return 'center';
@@ -104,10 +144,10 @@ export const HeroSection: React.FC = () => {
   const svgNoise = `data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E`;
 
   return (
-    <div ref={containerRef} className="relative w-full h-[100vh]">
+    <div ref={containerRef} className="relative w-full h-[250vh]">
       <div 
-        className="w-full h-full overflow-hidden font-inter transition-colors ease-[cubic-bezier(0.4,0,0.2,1)]"
-        style={{ backgroundColor: IMAGES[activeIndex].bg, transitionDuration: '650ms' }}
+        className="sticky top-0 w-full overflow-hidden font-inter ease-[cubic-bezier(0.4,0,0.2,1)]"
+        style={{ backgroundColor: IMAGES[activeIndex].bg, transition: 'background-color 650ms cubic-bezier(0.4,0,0.2,1)' }}
       >
         <div className="relative w-full h-[100vh] overflow-hidden">
         {/* Grain Overlay */}
