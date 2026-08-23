@@ -10,9 +10,9 @@ const IMAGES = [
 
 export const HeroSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const isNavigating = useRef(false);
 
   useEffect(() => {
     // Preload images
@@ -29,7 +29,8 @@ export const HeroSection: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!containerRef.current) return;
+      if (!containerRef.current || isNavigating.current) return;
+      
       const rect = containerRef.current.getBoundingClientRect();
       const offsetTop = rect.top; 
       const totalScrollable = rect.height - window.innerHeight;
@@ -46,7 +47,6 @@ export const HeroSection: React.FC = () => {
       
       const scrolled = -offsetTop;
       const progress = scrolled / totalScrollable;
-      // Using Math.round(progress * 3) evenly distributes the 4 states (0,1,2,3) across the scroll space
       const newIndex = Math.min(3, Math.max(0, Math.round(progress * 3)));
       
       if (newIndex !== activeIndex) {
@@ -65,19 +65,27 @@ export const HeroSection: React.FC = () => {
       ? (activeIndex + 1) % 4 
       : (activeIndex + 3) % 4;
       
+    // Set flag to ignore scroll events while we smoothly scroll the page
+    isNavigating.current = true;
+    setActiveIndex(nextIndex);
+
     const rect = containerRef.current.getBoundingClientRect();
     const currentScrollY = window.scrollY;
     const offsetTop = rect.top + currentScrollY; 
     const totalScrollable = rect.height - window.innerHeight;
-    const segmentHeight = totalScrollable / 3; // divided by 3 gaps
+    const segmentHeight = totalScrollable / 3; 
     
-    // Smooth scroll to the target segment
     const targetY = offsetTop + (nextIndex * segmentHeight);
     
     window.scrollTo({
       top: targetY,
       behavior: 'smooth'
     });
+
+    // Reset flag after smooth scroll is expected to finish
+    setTimeout(() => {
+      isNavigating.current = false;
+    }, 800);
   }, [activeIndex]);
 
   const getRole = (idx: number) => {
