@@ -123,7 +123,7 @@ export const ABOUT_DECORATIONS = {
 };
 
 export const ABOUT_BIO_TEXT =
-  "I'm a Full Stack Engineer obsessed with crafting scalable, AI-driven platforms and real-time digital experiences. Leveraging a modern stack—React, Node.js, Docker, and AWS—I bridge the gap between resilient backend architectures and seamless user interfaces. I thrive on solving complex engineering puzzles, optimizing cloud deployments, and turning bold ideas into production-ready reality. Let's build something extraordinary.";
+  "Hey there! 👋 I'm a Full Stack Developer who builds cool AI apps and real-time platforms using React, Node.js, and AWS. I basically spend my days turning caffeine into clean, scalable code. Whether I'm wrestling with backend architectures or deploying cloud servers, I actually enjoy solving complex engineering puzzles. I love making things look great and work perfectly. Let's build something awesome together (before the AI takes all our jobs)!";
 
 export const SERVICES: ServiceItem[] = [
   {

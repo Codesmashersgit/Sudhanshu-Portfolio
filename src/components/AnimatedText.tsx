@@ -37,27 +37,34 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className = ''
     offset: ['start 0.8', 'end 0.2'],
   });
 
-  const characters = useMemo(() => text.split(''), [text]);
-  const totalChars = characters.length;
+  const words = useMemo(() => text.split(' '), [text]);
+  const totalChars = useMemo(() => text.replace(/\s/g, '').length, [text]);
+
+  let globalCharIndex = 0;
 
   return (
     <p
       ref={containerRef}
       id={id}
-      className={`${className} flex flex-wrap justify-center`}
+      className={`${className} flex flex-wrap justify-center gap-x-[0.25em] md:gap-x-[0.3em]`}
     >
-      {characters.map((char, index) => {
-        const start = index / totalChars;
-        const end = Math.min(1, start + 1 / totalChars);
-        return (
-          <Char
-            key={`char-${index}-${char}`}
-            char={char}
-            progress={scrollYProgress}
-            range={[start, end]}
-          />
-        );
-      })}
+      {words.map((word, wordIndex) => (
+        <span key={`word-${wordIndex}`} className="inline-flex">
+          {word.split('').map((char, charIndex) => {
+            const start = globalCharIndex / totalChars;
+            const end = Math.min(1, start + 1 / totalChars);
+            globalCharIndex++;
+            return (
+              <Char
+                key={`char-${wordIndex}-${charIndex}-${char}`}
+                char={char}
+                progress={scrollYProgress}
+                range={[start, end]}
+              />
+            );
+          })}
+        </span>
+      ))}
     </p>
   );
 };
