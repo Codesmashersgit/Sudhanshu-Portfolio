@@ -123,7 +123,7 @@ export const ABOUT_DECORATIONS = {
 };
 
 export const ABOUT_BIO_TEXT =
-  "Hey there! 👋 I'm a Full Stack Developer who builds cool AI apps and real-time platforms using React, Node.js, and AWS. I basically spend my days turning caffeine into clean, scalable code. Whether I'm wrestling with backend architectures or deploying cloud servers, I actually enjoy solving complex engineering puzzles. I love making things look great and work perfectly. Let's build something awesome together (before the AI takes all our jobs)!";
+  "Hey dude! 👋 I'm a Full Stack Developer who builds cool AI apps and real-time platforms using React, Node.js, and AWS. I basically spend my days turning caffeine into clean, scalable code. Whether I'm wrestling with backend architectures or deploying cloud servers, I actually enjoy solving complex engineering puzzles. I love making things look great and work perfectly. Let's build something awesome together (before the AI takes all our jobs)!";
 
 export const SERVICES: ServiceItem[] = [
   {
