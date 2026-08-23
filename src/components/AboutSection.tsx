@@ -96,11 +96,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact }) => 
         </FadeIn>
 
         {/* Animated paragraph */}
-        <div id="about-text-container" className="w-full flex justify-center mt-6">
+        <div id="about-text-container" className="w-full flex justify-center">
           <AnimatedText
             id="about-animated-bio"
             text={ABOUT_BIO_TEXT}
-            className="text-[#D7E2EA] font-anton uppercase text-xl sm:text-2xl md:text-3xl text-center leading-relaxed max-w-4xl tracking-wide opacity-90"
+            className="text-[#D7E2EA] font-medium text-center leading-relaxed max-w-3xl"
           />
         </div>
 
