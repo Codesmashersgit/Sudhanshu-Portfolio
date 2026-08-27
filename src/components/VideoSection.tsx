@@ -37,7 +37,7 @@ export const VideoSection: React.FC = () => {
   return (
     <section 
       ref={containerRef}
-      className="w-full bg-white flex items-center justify-center py-20 px-4 sm:px-8 overflow-hidden select-none"
+      className="w-full bg-[#524F55] flex items-center justify-center py-20 px-4 sm:px-8 overflow-hidden select-none"
     >
       <div className="w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl relative">
         <video
