@@ -178,12 +178,9 @@ export const PROJECTS: ProjectItem[] = [
     tagline: 'AI Interview Assistant generating contextual responses using LLMs and Voice APIs.',
     tools: ['React.js', 'Node.js', 'GPT-4o', 'Deepgram API', 'MongoDB'],
     liveUrl: 'https://github.com/Codesmashersgit',
-    col1TopImage:
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85',
-    col1BottomImage:
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85',
-    col2Image:
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85',
+    col1TopImage: '/ghosthire/1.png',
+    col1BottomImage: '/ghosthire/1.png',
+    col2Image: '/ghosthire/1.png',
   },
   {
     id: '03',
