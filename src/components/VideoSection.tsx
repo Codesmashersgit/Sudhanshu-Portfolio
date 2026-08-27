@@ -37,7 +37,7 @@ export const VideoSection: React.FC = () => {
   return (
     <section 
       ref={containerRef}
-      className="w-full h-[80vh] md:h-screen relative overflow-hidden select-none"
+      className="w-full h-screen relative overflow-hidden select-none"
     >
       <video
         ref={videoRef}
