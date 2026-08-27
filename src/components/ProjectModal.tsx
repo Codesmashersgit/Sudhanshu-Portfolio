@@ -92,7 +92,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 <img
                   src={project.col1TopImage}
                   alt={`${project.name} preview 1`}
-                  className="w-full h-[220px] sm:h-[260px] object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-auto min-h-[220px] object-cover transition-transform duration-500 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
               </div>
@@ -100,20 +100,30 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 <img
                   src={project.col1BottomImage}
                   alt={`${project.name} preview 2`}
-                  className="w-full h-[240px] sm:h-[300px] object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-auto min-h-[240px] object-cover transition-transform duration-500 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
               </div>
             </div>
-            <div className="md:col-span-7">
+            <div className="md:col-span-7 flex flex-col gap-4 sm:gap-6">
               <div className="overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/10 bg-[#161616] h-full group min-h-[300px]">
                 <img
                   src={project.col2Image}
                   alt={`${project.name} preview hero`}
-                  className="w-full h-full min-h-[460px] sm:min-h-[580px] object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
               </div>
+              {project.col2BottomImage && (
+                <div className="overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/10 bg-[#161616] group">
+                  <img
+                    src={project.col2BottomImage}
+                    alt={`${project.name} preview 4`}
+                    className="w-full h-auto min-h-[240px] object-cover transition-transform duration-500 group-hover:scale-105"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </motion.div>

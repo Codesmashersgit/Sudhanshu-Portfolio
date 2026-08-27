@@ -47,7 +47,7 @@ export default function App() {
       <ServicesSection />
 
       {/* 5. Projects Section */}
-      <ProjectsSection />
+      <ProjectsSection onSelectProject={handleSelectProject} />
 
       {/* 6. Foldcraft Landing Section */}
       <FoldcraftSection />

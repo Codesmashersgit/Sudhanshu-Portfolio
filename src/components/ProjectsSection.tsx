@@ -1,7 +1,12 @@
 import React from 'react';
 import { PROJECTS } from '../data/portfolioData';
+import { ProjectItem } from '../types';
 
-export const ProjectsSection: React.FC = () => {
+interface ProjectsSectionProps {
+  onSelectProject: (project: ProjectItem) => void;
+}
+
+export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProject }) => {
   return (
     <section id="projects" className="w-full bg-[#0C0C0C] py-24 sm:py-32 px-4 sm:px-8 flex flex-col items-center select-none">
       
@@ -27,6 +32,7 @@ export const ProjectsSection: React.FC = () => {
           {PROJECTS.map((project, idx) => (
             <div 
               key={project.id || idx}
+              onClick={() => onSelectProject(project)}
               className="bg-[#0C0C0C] p-6 sm:p-8 flex flex-col group cursor-pointer hover:bg-[#0f0f0f] transition-colors duration-300"
             >
               {/* Image Container */}

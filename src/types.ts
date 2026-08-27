@@ -25,6 +25,7 @@ export interface ProjectItem {
   col1TopImage: string;
   col1BottomImage: string;
   col2Image: string;
+  col2BottomImage?: string;
   tagline?: string;
   tools?: string[];
   liveUrl?: string;
