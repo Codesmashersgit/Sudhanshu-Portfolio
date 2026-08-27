@@ -207,4 +207,26 @@ export const PROJECTS: ProjectItem[] = [
     col2Image:
       'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85',
   },
+  {
+    id: '05',
+    name: 'Movie Street',
+    category: 'Web App',
+    tagline: 'A comprehensive movie discovery platform with detailed title info, search, and ratings.',
+    tools: ['React.js', 'TMDB API', 'Tailwind CSS', 'Framer Motion'],
+    liveUrl: 'https://movieappwe.netlify.app/',
+    col1TopImage: '/moviestreet/1.png',
+    col1BottomImage: '/moviestreet/2.png',
+    col2Image: '/moviestreet/3.png',
+  },
+  {
+    id: '06',
+    name: 'Payal Kar Dutta',
+    category: 'Client',
+    tagline: 'Premium portfolio for a distinguished Real Estate Strategist, National Sales Performer, and TEDx Speaker.',
+    tools: ['React.js', 'Tailwind CSS', 'Framer Motion'],
+    liveUrl: 'https://loquacious-choux-aa9490.netlify.app/',
+    col1TopImage: '/payal/1.png',
+    col1BottomImage: '/payal/1.png',
+    col2Image: '/payal/1.png',
+  },
 ];
