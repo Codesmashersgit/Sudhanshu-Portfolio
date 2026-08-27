@@ -4,6 +4,7 @@ import { HeroSection } from './components/HeroSection';
 import { MarqueeSection } from './components/MarqueeSection';
 import { AboutSection } from './components/AboutSection';
 import { ServicesSection } from './components/ServicesSection';
+import { VideoSection } from './components/VideoSection';
 
 import { FoldcraftSection } from './components/FoldcraftSection';
 import { ContactModal } from './components/ContactModal';
@@ -45,7 +46,8 @@ export default function App() {
       {/* 4. Services Section */}
       <ServicesSection />
 
-
+      {/* 5. Showcase Video Section */}
+      <VideoSection />
       {/* 6. Foldcraft Landing Section */}
       <FoldcraftSection />
 
