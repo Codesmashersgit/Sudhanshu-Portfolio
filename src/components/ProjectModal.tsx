@@ -85,28 +85,53 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </div>
           )}
 
-          {/* Gallery grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6">
-            <div className="md:col-span-5 flex flex-col gap-4 sm:gap-6">
-              <div className="overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/10 bg-[#161616] group">
-                <img
-                  src={project.col1TopImage}
-                  alt={`${project.name} preview 1`}
-                  className="w-full h-auto min-h-[220px] object-cover transition-transform duration-500 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div className="overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/10 bg-[#161616] group">
-                <img
-                  src={project.col1BottomImage}
-                  alt={`${project.name} preview 2`}
-                  className="w-full h-auto min-h-[240px] object-cover transition-transform duration-500 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
+          {/* Bento Gallery Collage */}
+          <div className="grid grid-cols-1 md:grid-cols-12 auto-rows-fr gap-4 sm:gap-6">
+            
+            {/* Top Wide */}
+            <div className="md:col-span-8 overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/10 bg-[#161616] group min-h-[250px] sm:min-h-[320px]">
+              <img
+                src={project.col1TopImage}
+                alt={`${project.name} preview 1`}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                referrerPolicy="no-referrer"
+              />
             </div>
-            <div className="md:col-span-7 flex flex-col gap-4 sm:gap-6">
-              <div className="overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/10 bg-[#161616] h-full group min-h-[300px]">
+            
+            {/* Top Small/Tall */}
+            <div className="md:col-span-4 overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/10 bg-[#161616] group min-h-[250px] sm:min-h-[320px]">
+              <img
+                src={project.col1BottomImage}
+                alt={`${project.name} preview 2`}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+
+            {/* Bottom Row */}
+            {project.col2BottomImage ? (
+              <>
+                {/* Bottom Small/Tall */}
+                <div className="md:col-span-4 overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/10 bg-[#161616] group min-h-[250px] sm:min-h-[320px]">
+                  <img
+                    src={project.col2BottomImage}
+                    alt={`${project.name} preview 3`}
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                {/* Bottom Wide */}
+                <div className="md:col-span-8 overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/10 bg-[#161616] group min-h-[250px] sm:min-h-[320px]">
+                  <img
+                    src={project.col2Image}
+                    alt={`${project.name} preview 4`}
+                    className="w-full h-full object-cover object-left-top transition-transform duration-500 group-hover:scale-105"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              </>
+            ) : (
+              <div className="md:col-span-12 overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/10 bg-[#161616] group min-h-[300px] sm:min-h-[400px]">
                 <img
                   src={project.col2Image}
                   alt={`${project.name} preview hero`}
@@ -114,17 +139,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                   referrerPolicy="no-referrer"
                 />
               </div>
-              {project.col2BottomImage && (
-                <div className="overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/10 bg-[#161616] group">
-                  <img
-                    src={project.col2BottomImage}
-                    alt={`${project.name} preview 4`}
-                    className="w-full h-auto min-h-[240px] object-cover transition-transform duration-500 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-              )}
-            </div>
+            )}
           </div>
         </motion.div>
       </div>
