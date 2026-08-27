@@ -4,9 +4,9 @@ import { HeroSection } from './components/HeroSection';
 import { MarqueeSection } from './components/MarqueeSection';
 import { AboutSection } from './components/AboutSection';
 import { ServicesSection } from './components/ServicesSection';
-import { VideoSection } from './components/VideoSection';
-
+import { ProjectsSection } from './components/ProjectsSection';
 import { FoldcraftSection } from './components/FoldcraftSection';
+
 import { ContactModal } from './components/ContactModal';
 import { ProjectModal } from './components/ProjectModal';
 import { ProjectItem } from './types';
@@ -46,8 +46,9 @@ export default function App() {
       {/* 4. Services Section */}
       <ServicesSection />
 
-      {/* 5. Showcase Video Section */}
-      <VideoSection />
+      {/* 5. Projects Section */}
+      <ProjectsSection />
+
       {/* 6. Foldcraft Landing Section */}
       <FoldcraftSection />
 
