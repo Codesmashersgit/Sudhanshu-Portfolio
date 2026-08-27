@@ -37,19 +37,17 @@ export const VideoSection: React.FC = () => {
   return (
     <section 
       ref={containerRef}
-      className="w-full bg-[#524F55] flex items-center justify-center py-20 px-4 sm:px-8 overflow-hidden select-none"
+      className="w-full h-[80vh] md:h-screen relative overflow-hidden select-none"
     >
-      <div className="w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl relative">
-        <video
-          ref={videoRef}
-          src="https://cdn.recent.design/items/d0zj0fm/0/1280x1280.mp4"
-          className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity duration-500"
-          muted
-          playsInline
-          loop
-          preload="metadata"
-        />
-      </div>
+      <video
+        ref={videoRef}
+        src="https://cdn.recent.design/items/d0zj0fm/0/1280x1280.mp4"
+        className="absolute inset-0 w-full h-full object-cover"
+        muted
+        playsInline
+        loop
+        preload="metadata"
+      />
     </section>
   );
 };
